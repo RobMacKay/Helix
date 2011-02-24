@@ -238,7 +238,8 @@ MESSAGE;
             $form->input_arr = array(
                     array(
                             'name'=>'email',
-                            'label'=>'Email Address'
+                            'label'=>'Email Address',
+                            'class' => 'input-text'
                         ),
                     array(
                             'type' => 'select',
@@ -326,24 +327,28 @@ MESSAGE;
                     array(
                             'name' => 'username',
                             'label' => 'Choose a Username (8-20 characters using '
-                                        . 'only a-z, 0-9, -, and _)'
+                                        . 'only a-z, 0-9, -, and _)',
+                            'class' => 'input-text'
                         ),
                     array(
                             'name' => 'display',
                             'label' => 'Choose a Display Name (the name shown on '
-                                        . 'entries posted by you, i.e. "John Doe")'
+                                        . 'entries posted by you, i.e. "John Doe")',
+                            'class' => 'input-text'
                         ),
                     array(
                             'name' => 'password',
                             'label' => 'Choose a Password',
                             'type' => 'password',
-                            'id' => 'choose-password'
+                            'id' => 'choose-password',
+                            'class' => 'input-text'
                         ),
                     array(
                             'name' => 'verify-password',
                             'label' => 'Verify Your Password',
                             'type' => 'password',
-                            'id' => 'verify-password'
+                            'id' => 'verify-password',
+                            'class' => 'input-text'
                         ),
                     array(
                             'name' => 'vcode',
@@ -353,7 +358,8 @@ MESSAGE;
                     array(
                             'type' => 'submit',
                             'name' => 'form-submit',
-                            'value' => 'Activate'
+                            'value' => 'Activate',
+                            'class' => 'input-submit'
                         )
                 );
 
