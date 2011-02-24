@@ -1,0 +1,53 @@
+#menu li.selected a {
+	border: 0;
+}
+
+#nl-capture h3 strong {
+	font-size: 18px;
+}
+
+.entry-title h1 {
+	font-size: 18px;
+}
+
+#blog-footer-capture p {
+	font-size: 13px;
+}
+
+#blog-footer-capture label {
+	margin: 0 0 0 6px;
+}
+
+#blog-footer-capture input[type=text] {
+	width: 100px;
+	background: #FFF;
+	font-size: 10px;
+}
+
+#blog-footer-capture input[type=submit] {
+	margin: 0;
+	padding: 1px 0;
+	width: 130px;
+}
+
+span.no-spam {
+	margin-top: 10px;
+}
+
+.thumbbox-main-thumbs-wrapper>ul>li {
+	display: inline;
+}
+
+.postedby a {
+	clear:left;
+	border: 0;
+	display: block;
+}
+
+.preview {
+  background:#FEE;
+}
+
+.credits {
+  letter-spacing:0.04em;
+}

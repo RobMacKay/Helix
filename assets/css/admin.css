@@ -1,0 +1,196 @@
+/**
+ * Page-specific styles for the admin styles. These apply when a site
+ * administrator has logged in.
+ *
+ * @author		Jason Lengstorf
+ * @copyright	2009 Ennui Design
+ * @license		http://www.opensource.org/licenses/mit-license.html MIT License
+ */
+
+
+/******************************************************************************
+* OVERARCHING ADMINISTRATIVE TOOLS
+******************************************************************************/
+
+#admin-site-options {
+    position: absolute;
+    top: 0;
+
+    width: 980px;
+    margin: 0 2%;
+    padding: 2px 8px;
+    background: #222;
+    background: rgba(0,0,0,.85);
+    -moz-box-shadow: 1px 2px 2px rgba(0,0,0,.25);
+
+    -moz-border-radius: 0 0 6px 6px;
+    -webkit-border-radius: 0 0 6px 6px;
+    border-radius: 0 0 6px 6px;
+    border: 1px solid #EEE;
+    border-color: rgba(245,245,245,.25);
+    border-top: 0;
+
+    z-index: 5;
+}
+
+#admin-site-options li {
+    display: inline-block;
+    margin: 0;
+    padding: 4px 0;
+
+    font-size: 10px;
+    color: #AAA;
+}
+
+#admin-site-options li:after {
+    padding: 0 0 0 4px;
+    content: '\2014';
+}
+
+#admin-site-options li.info-box:after {
+    margin: 0 4px 0 0;
+    padding: 0 0 0 16px;
+    content: ' Options:';
+}
+
+#admin-site-options li:last-child:after {
+    content: '';
+}
+
+#admin-site-options a {
+    color: #AAF;
+    font-size: 10px;
+}
+
+
+/******************************************************************************
+* EDIT LINKS
+******************************************************************************/
+
+#ecms-edit-form .input-textarea {
+    width: 610px;
+}
+
+
+/******************************************************************************
+* EDIT LINKS
+******************************************************************************/
+
+.admintopopts,.admin {
+    display: block;
+    margin: 0;
+    padding: 8px;
+    padding: 8px;
+    background: #222;
+    background: rgba(0,0,0,.85);
+    -moz-box-shadow: 1px 2px 2px rgba(0,0,0,.25);
+
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    border: 1px solid #EEE;
+    border-color: rgba(245,245,245,.25);
+    border-top: 0;
+
+    z-index: 5;
+}
+
+.admintopopts p {
+    margin: 0;
+    padding: 0;
+    color: #AAA;
+    font-size: 10px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.admintopopts a {
+    color: #99F;
+}
+
+.adminsimpleoptions {
+    text-align: center;
+    display: block;
+    margin: 0 auto 10px;
+    font-size: 11px;
+    color: #999;
+}
+
+.adminsimpleoptions a {
+    color: #99F;
+}
+
+
+/******************************************************************************
+* GALLERY EDITING
+******************************************************************************/
+
+#admin_gal>div {
+    float: left;
+    margin: 10px 20px;
+}
+
+#admin_gal>div>img {
+    display: block;
+}
+
+#sortbtn {
+    display: block;
+    width: 68px;
+    clear: left;
+    margin: 0 auto;
+    padding: 8px 14px 4px;
+    background: #222;
+    text-transform: uppercase;
+    color: #FFF;
+    font-family: helvetica, sans-serif;
+    letter-spacing: .06em;
+    font-size: 20px;
+    line-height: 24px;
+    border: 1px solid #555;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    box-shadow: 1px 2px 5px #444;
+    -moz-box-shadow: 1px 2px 5px #444;
+    -webkit-box-shadow: 1px 2px 5px #444;
+}
+
+
+/******************************************************************************
+* Menu Page Editing
+******************************************************************************/
+
+#menu-page-edit {
+    display: table;
+    margin: 0 auto;
+    background: rgba(0, 0, 0, .2);
+    -moz-border-radius: 6px;
+    -moz-box-shadow: 0px 0px 8px rgba(0,0,0,.3);
+    border-collapse: collapse;
+    font: normal 11px/14px helvetica, arial, sans-serif;
+}
+
+#menu-page-edit th {
+    background: rgba(0,0,0,.75);
+    color: #DDD;
+    font-size: 12px;
+}
+
+#menu-page-edit th:first-child {
+    -moz-border-radius: 6px 0 0 0;
+}
+
+#menu-page-edit th:last-child {
+    -moz-border-radius: 0 6px 0 0;
+}
+
+#menu-page-edit th,#menu-page-edit td {
+    padding: 8px 6px;
+    text-align: center;
+    border-bottom: 1px solid rgba(0,0,0,.25);
+}
+
+#menu-page-edit tr:last-child td {
+    border: 0;
+}

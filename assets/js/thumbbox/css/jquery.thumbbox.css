@@ -1,0 +1,251 @@
+/*
+ * CSS for the ThumbBox jQuery Plugin
+ *
+ * Examples and documentation at: http://ennuidesign.com/projects/thumbbox
+ *
+ * Copyright (c) 2010 Ennui Design
+ *
+ * Dual licensed under the MIT and GPL licenses:
+ *   http://www.opensource.org/licenses/mit-license.php
+ *   http://www.gnu.org/licenses/gpl.html
+ */
+
+/*
+ *******************************************************************************
+ * COLORS - Change colors here, or use the plugin options
+ *******************************************************************************
+ */
+.thumbbox-main,.thumbbox-main-img-caption {
+	background: #000;
+	background: rgba(0, 0, 0, .9);
+}
+
+.thumbbox-main-img,.thumbbox-main-modal {
+	background: #FFF;
+}
+
+.thumbbox-main-thumbs,.thumbbox-main-thumbs-wrapper>ul,
+.thumbbox-main-thumbs-wrapper>ul>li,a.thumbbox-prev-btn,a.thumbbox-next-btn {
+	background: #000;
+}
+
+.thumbbox-main-img-caption,.thumbbox-main-img-caption>h3,
+.thumbbox-main-img-caption>p,.thumbbox-main-img-caption>p>a,a.thumbbox-next-btn,
+a.thumbbox-prev-btn {
+	color: #FFF;
+}
+
+a.thumbbox-main-img-caption-toggle,a.thumbbox-close-btn {
+	color: #000;
+}
+
+.thumbbox-main-img>img,.thumbbox-main-thumbs,
+.thumbbox-main-thumbs-wrapper>ul>li {
+    border-color: #000;
+}
+
+
+/*
+ *******************************************************************************
+ * FONT - This is the font stack for the whole plugin
+ *******************************************************************************
+ */
+.thumbbox-main-img-caption,.thumbbox-main-img-caption>h3,
+.thumbbox-main-img-caption>p,.thumbbox-main-img-caption>p>a,a.thumbbox-next-btn,
+a.thumbbox-prev-btn,a.thumbbox-main-img-caption-toggle,a.thumbbox-close-btn {
+	font-family: helvetica, arial, verdana, sans-serif;
+}
+
+
+/*
+ *******************************************************************************
+ * LAYOUT - Edit at your own risk. You break it, you buy it.
+ *******************************************************************************
+ */
+body {
+	position: relative;
+}
+
+.thumbbox-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	display: block;
+	width: 100%;
+	background-color: #000;
+	z-index: 1000;
+}
+
+.thumbbox-main {
+	position: absolute;
+	left: 50%;
+	padding: 15px;
+	-moz-border-radius: 8px;
+	-moz-box-shadow: black 0 1px 15px 2px;
+	-webkit-border-radius: 8px;
+	-webkit-box-shadow: 0 1px 15px black;
+	z-index: 1001;
+}
+
+.thumbbox-main-img {
+	position: relative;
+	display: block;
+	height: 85%;
+	margin: 0 auto;
+	padding: 0 2%;
+	-moz-border-radius-topleft: 8px;
+	-moz-border-radius-topright: 8px;
+	-webkit-border-top-left-radius: 8px;
+	-webkit-border-top-right-radius: 8px;
+	text-align: center;
+	overflow: hidden;
+}
+
+.thumbbox-main-modal {
+	position: relative;
+	display: block;
+	height: 100%;
+	margin: 0 auto;
+	padding: 0 2% 20px;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	text-align: center;
+	overflow: hidden;
+}
+
+.thumbbox-main-modal h1 {
+	margin: 20px 20px 10px;
+	padding: 0;
+}
+
+.thumbbox-main-modal h2 {
+	margin: 10px 30px;
+}
+
+.thumbbox-main-modal p {
+	margin: 0 30px 10px;
+	padding: 0;
+}
+
+.thumbbox-main-modal img {
+	display: block;
+	margin: 0 auto 10px;
+	padding: 0;
+	max-width: 330px;
+}
+
+.thumbbox-main-img-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	padding: 20px 0 10px;
+	text-align: left;
+}
+
+.thumbbox-main-img-caption>h3,
+.thumbbox-main-img-caption>p {
+    width: auto;
+	margin: 0 0 14px;
+	padding: 0 20px;
+	line-height: 14px;
+    text-align: left;
+}
+
+.thumbbox-main-img-caption>p>a {
+	text-decoration: underline;
+}
+
+a.thumbbox-main-img-caption-toggle {
+	position:absolute;
+	top:-12px;
+	right:0px;
+	padding:0 20px;
+	font-size:9px;
+	line-height:12px;
+	text-transform:uppercase;
+	text-decoration:none;
+	outline:0;
+}
+
+.thumbbox-main-img>img {
+	margin: 0 auto;
+	border: 1px solid;
+}
+
+.thumbbox-main-thumbs {
+	position: relative;
+	z-index: 1001;
+	margin: 0;
+	padding: 0 2%;
+	border-top: 3px solid;
+	-moz-border-radius-bottomleft: 8px;
+	-moz-border-radius-bottomright: 8px;
+	-webkit-border-bottom-left-radius: 8px;
+	-webkit-border-bottom-right-radius: 8px;
+}
+
+.thumbbox-main-thumbs-wrapper {
+	position:relative;
+	display: block;
+	overflow: hidden;
+	margin: 0 auto;
+	padding: 5px 0 0;
+}
+
+.thumbbox-main-thumbs-wrapper>ul {
+	position:relative;
+	display: block;
+	height: 100%;
+	width: 10000px;
+	margin:0;
+	padding:0;
+    border: 0;
+	list-style: none;
+	text-align: left;
+}
+
+.thumbbox-main-thumbs-wrapper>ul>li {
+	display: inline-block;
+	vertical-align: middle;
+	margin: 0 -1px 0 0;
+	padding: 0;
+	border: 1px solid;
+	overflow: hidden;
+}
+
+.thumbbox-main-thumbs-wrapper>ul>li>a>img {
+	margin: 0;
+	padding: 0;
+    border: 0;
+    opacity: .75;
+}
+
+a.thumbbox-prev-btn, a.thumbbox-next-btn {
+	position: absolute;
+	top: 30%;
+	padding: 6px 6px 4px;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	text-transform: uppercase;
+	text-decoration: none;
+	outline:0;
+}
+.thumbbox-prev-btn {
+	left: -15px;
+}
+.thumbbox-next-btn {
+	right: -15px;
+}
+
+a.thumbbox-close-btn {
+	position: absolute;
+	top: 13px;
+	right: 8px;
+	margin: 0;
+	padding: 0 10px 13px;
+	font: 20px/ 20px helvetica, sans-serif;
+	text-decoration:none;
+	outline:0;
+}

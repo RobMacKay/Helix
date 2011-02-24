@@ -1,0 +1,64 @@
+--==PHP-alt<?php echo $mime_boundary; ?>
+
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+
+Someone just posted a new comment on the entry
+"<?php echo $entry_title; ?>":
+
+    <?php echo $commenter; ?> said:
+    <?php echo wordwrap($comment, 50, "\n    "); ?>
+
+
+View and reply to this comment:
+<?php echo $comment_link; ?>
+
+
+Sincerely,
+The friendly robot behind the scenes at
+<?php echo SITE_NAME; ?>
+
+
+
+
+
+
+
+
+
+To manage your notification settings, follow this link: {unsubscribe_link}
+
+--==PHP-alt<?php echo $mime_boundary; ?>
+
+Content-Type: text/html; charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+
+<html>
+<body>
+<h3>
+    A new comment was just posted
+    on the entry, "<a href="<?php echo $entry_link; ?>"><?php echo $entry_title; ?></a>"
+</h3>
+<blockquote style="margin: 20px; margin-bottom: 40px;">
+    <p><strong><?php echo $commenter; ?> said:</strong></p>
+    <p style="font-size: 110%; font-style: italic;">
+        <?php echo nl2br($comment); ?>
+    </p>
+    <p>
+        <a href="<?php echo $comment_link; ?>"
+           style="font-size: 90%">View and reply to this comment.</a>
+    </p>
+</blockquote>
+<p>
+    --<br />
+    Sincerely,<br />
+    The friendly robot behind the scenes at
+    <a href="<?php echo SITE_URL; ?>"><?php echo SITE_NAME; ?></a>
+</p>
+<p style="font-size: 80%; margin-top: 120px;">
+    <a href="{unsubscribe_link}">Manage your notification settings</a>
+</p>
+</body>
+</html>
+
+--==PHP-alt<?php echo $mime_boundary; ?>--

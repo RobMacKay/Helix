@@ -1,0 +1,21 @@
+# Cache certain file types until the apocalypse
+<FilesMatch "\.(html?|gif|j(pe?g|s)|p(ng|df)|css|ico|s(wf|vg)|mp[34]|(wo|ti)ff|ttf|otf|eot)(\.gz)?$">
+Header set Expires "Fri, 21 Dec 2012 00:00:00 GMT"
+Header unset ETag
+FileETag None
+</FilesMatch>
+
+# Make sure no trailing slashes appear in URLs for SEO
+RedirectMatch 301 ^/(.*)/$ http://demo.gethelix.com/$1
+
+RewriteEngine on
+RewriteBase /
+Options -MultiViews +FollowSymLinks
+
+# Require the "www" for SEO
+RewriteRule ^demo.* - [L]
+RewriteCond %{HTTP_HOST} ^gethelix.com [NC]
+RewriteRule ^(.*)$ http://www.gethelix.com/$1 [L,R=301]
+
+# Send all requests through index.php unless a file is requested
+RewriteRule !\.(html?|gif|j(pe?g|s)|p(ng|df)|css|ico|s(wf|vg)|mp[34]|(wo|ti)ff|ttf|otf|eot|galery\.php)$ index.php [NC]

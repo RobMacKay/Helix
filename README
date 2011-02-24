@@ -1,0 +1,45 @@
+Helix®
+
+Version 0.9.1.20110115a
+
+Copyright © 2011 Copter Labs, Inc. <http://www.copterlabs.com/>
+
+Helix® is dual-licensed under the MIT (license-mit.txt) and
+GPL (license-gpl.txt) licenses.
+
+
+OVERVIEW
+
+Helix® was developed to be an open-source content management system for
+front-end programmers. The goal has always been to create a system that puts no
+barriers between the content and the markup. The designer has full access to
+all HTML and CSS in its raw state — no proprietary methods or tricks to learn.
+
+The secondary goal of Helix® is to provide an easy plugin structure to allow it
+to be extended and adapted easily to any needs. No hacking. No workarounds. Just
+plugins that do exactly what they're supposed to do.
+
+Finally, Helix® is designed to be out of the way. It's designed to be as thin as
+possible so developers can just pick it up and run with it.
+
+
+LINKS
+
+Documentation:  http://api.gethelix.com/
+
+Support Forums: http://support.gethelix.com/
+
+
+CREDITS
+
+Developed by Jason Lengstorf <jason.lengstorf@copterlabs.com>
+
+Contributors:
+Drew Douglass <drew.douglass@copterlabs.com>
+Rob MacKay <rob.mackay@copterlabs.com>
+Tom Sturge <tom.sturge@copterlabs.com>
+
+
+WORDS OF WISDOM
+
+...
