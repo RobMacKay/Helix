@@ -260,7 +260,7 @@ class Utilities
     {
         $cache_filepath = self::_generate_cache_filepath($cache_id);
 
-        $fp = fopen($cache_filepath, "w");
+        $fp = fopen($cache_filepath, "wb");
         fwrite($fp, serialize($data));
         fclose($fp);
 
