@@ -2,6 +2,7 @@
 ######################
 *.log
 *.cache
+*.config
 
 # OS generated files #
 ######################
