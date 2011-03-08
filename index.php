@@ -1,6 +1,6 @@
 <?php
 
-    // Define a path for loading the CMS. Default is ../system/
+    // Define a path for loading the CMS. Default is ./system/
     define('CMS_PATH', './system/');
 
     // Initializes the core functionality of the CMS
