@@ -1,7 +1,6 @@
 # Logs and databases #
 ######################
 *.log
-*.cache
 
 # OS generated files #
 ######################
