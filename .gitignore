@@ -1,6 +1,8 @@
 # Logs and databases #
 ######################
 *.log
+*.cache
+*.config
 
 # OS generated files #
 ######################
@@ -8,7 +10,3 @@
 ehthumbs.db
 Icon?
 Thumbs.db
-
-# IDE and Misc files #
-#####################
-Helix.esproj/
