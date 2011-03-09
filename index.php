@@ -155,6 +155,22 @@ if( AdminUtilities::check_clearance(1) )
                 </li>
             </ul><!-- end #sidebar-flickr -->
 
+<?php
+
+    $config = (object) array(
+            'display_num' => 6,
+            'page_slug' => 'blog',
+            'filter' => 'recent',
+            'list_id' => 'proof-of-concept',
+            'template' => 'sb-posts.inc',
+            'tags' => NULL,
+            'entry_id' => NULL
+        );
+
+    echo Page::display_posts($config);
+
+?>
+
         </aside>
 
     </div><!-- end #content -->

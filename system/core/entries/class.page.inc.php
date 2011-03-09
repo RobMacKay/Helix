@@ -616,6 +616,76 @@ class Page extends AdminUtilities
         }
     }
 
+    public static function display_posts( $num_or_config=8 )
+    {
+        $config = (object) array(
+            'display_num' => 8,
+            'page_slug' => 'blog',
+            'filter' => 'recent',
+            'list_id' => 'display_posts',
+            'template' => 'display_posts.inc',
+            'tags' => NULL,
+            'entry_id' => NULL
+        );
+
+        if ( is_object($num_or_config) )
+        {
+            foreach ( $num_or_config as $param=>$value )
+            {
+                if ( property_exists($config, $param) )
+                {
+                    $config->$param = $value;
+                }
+            }
+        }
+        else if ( is_int($num_or_config) )
+        {
+            $config->display_num = $num_or_config;
+        }
+
+        $page_obj = new self(array($config->page_slug));
+        $page_obj->template = $config->template;
+        $page_obj->entry_limit = $config->display_num;
+
+        $menu_obj = Menu::get_page_data_by_slug($config->page_slug);
+        if ( $config->filter==='recent' )
+        {
+            $page_obj->get_all_entries();
+        }
+        else if ( $config->filter==='featured' )
+        {
+            $page_obj->get_featured_entries();
+        }
+        else if ( $config->filter==='related' && isset($config->tags) )
+        {
+            $page_obj->get_related_entries(
+                    $config->entry_id, $menu_obj->page_id, $config->tags
+                );
+        }
+
+        $page_obj->generate_template_tags();
+
+        foreach ( $page_obj->entries as &$entry )
+        {
+
+            if ( !empty($entry->subtitle) )
+            {
+                $subtitle = ': ' . $entry->subtitle;
+            }
+            else
+            {
+                $subtitle = NULL;
+            }
+
+            $entry->title = stripslashes($entry->title . $subtitle);
+        }
+
+        $extra_template->header->list_id = $config->list_id;
+
+        // Return the entry as formatted by the template
+        return $page_obj->generate_markup($extra_template);
+    }
+
     public function __toString()
     {
         return $this->display_public();

@@ -1,4 +1,4 @@
-<ul id="{ul_id}">
+<ul id="{list_id}">
 {loop}
     <li>
         <a href="{relative_link}">{title}</a>
