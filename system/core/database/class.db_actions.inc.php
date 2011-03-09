@@ -334,38 +334,7 @@ class DB_Actions extends DB_Connect
         }
     }
 
-    protected function get_recent_entries( $page_id, $num_entries_to_display=8 )
-    {
-        try
-        {
-            $sql = "SELECT " . self::ENTRY_FIELDS
-                 . "FROM `".DB_NAME."`.`".DB_PREFIX."entries`
-                    WHERE `page_id`=:page_id
-                    ORDER BY `created` DESC
-                    LIMIT 0, $num_entries_to_display";
-
-            $cache_id = $sql.$page_id;
-            $cache = Utilities::check_cache($cache_id);
-            if( $cache!==FALSE )
-            {
-                $this->entries = $cache;
-                return;
-            }
-
-            $stmt = $this->db->prepare($sql);
-            $stmt->bindParam(':page_id', $page_id, PDO::PARAM_INT);
-
-            $this->_load_entry_array($stmt);
-
-            $file = Utilities::save_cache($cache_id, $this->entries);
-        }
-        catch( Exception $e )
-        {
-            ECMS_Error::log_exception($e, FALSE);
-        }
-    }
-
-    protected function get_featured_entries( $num_entries_to_display=8 )
+    protected function get_featured_entries(  )
     {
         try
         {
@@ -373,7 +342,7 @@ class DB_Actions extends DB_Connect
                  . "FROM `".DB_NAME."`.`".DB_PREFIX."featured`
                     LEFT JOIN `".DB_NAME."`.`".DB_PREFIX."entries`
                         USING( `entry_id` )
-                    LIMIT 0, $num_entries_to_display";
+                    LIMIT 0, $this->entry_limit";
 
             $cache_id = $sql;
             $cache = Utilities::check_cache($cache_id);
@@ -395,7 +364,7 @@ class DB_Actions extends DB_Connect
         }
     }
 
-    protected function get_related_entries($tags, $limit=30)
+    protected function get_related_entries( $entry_id, $page_id, $tags )
     {
         $tag_arr = array_map('trim', explode(',', $tags));
         $union_sql = NULL;
@@ -403,35 +372,41 @@ class DB_Actions extends DB_Connect
         $count = 0;
 
         $sql = "SELECT
-                    COUNT(*) AS `common_term_count`," . self::ENTRY_FIELDS
-            .  "FROM
+                    COUNT(*) AS `common_term_count`," . self::ENTRY_FIELDS . "
+                FROM
                 (";
 
         foreach( $tag_arr as $tag )
         {
+            ++$count;
+
             $union_all = $union_sql ? "UNION ALL" : NULL;
             $union_sql .= "
                     $union_all
                     (
-                        SELECT
-                            `entry_id`, `page_id`, `title`, `entry`, `slug`,
-                            `tags`, `extra`, `author`, `created`
+                        SELECT" . self::ENTRY_FIELDS . "
                         FROM `".DB_NAME."`.`".DB_PREFIX."entries`
                         WHERE MATCH( `title`, `entry`, `tags` )
-                                AGAINST( ? IN BOOLEAN MODE )
+                                AGAINST( :param$count IN BOOLEAN MODE )
                     )";
 
-            $db_params[++$i] = '+' . $tag;
+            $db_params[$count] = '+' . $tag;
         }
+
+
+        $db_params[$count] = $page_id;
+        $page_id_param = 'param' . $count++;
+
+        $db_params[$count] = $entry_id;
+        $entry_id_param = 'param' . $count;
 
         $sql .= $union_sql . "
                 ) AS `combined_results`
-                WHERE page = ?
+                WHERE `page_id` = :$page_id_param
+                AND `entry_id` <> :$entry_id_param
                 GROUP BY `slug`
                 ORDER BY `common_term_count` DESC
-                LIMIT 0, $limit";
-
-        $db_params[++$i] = $this->url0;
+                LIMIT 0, $this->entry_limit";
 
         $cache_id = $sql.$tags;
         $cache = Utilities::check_cache($cache_id);
@@ -447,7 +422,9 @@ class DB_Actions extends DB_Connect
 
             foreach( $db_params as $placeholder_num=>$bound_var )
             {
-                $stmt->bindParam($placeholder_num, $bound_var, PDO::PARAM_STR);
+                $var_name = 'param' . $placeholder_num;
+                $$var_name = $bound_var;
+                $stmt->bindParam($var_name, $$var_name, PDO::PARAM_STR);
             }
 
             $this->_load_entry_array($stmt);
