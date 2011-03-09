@@ -159,7 +159,7 @@ if( AdminUtilities::check_clearance(1) )
 
     $config = (object) array(
             'display_num' => 6,
-            'page_slug' => 'blog',
+            'page_slug' => 'features',
             'filter' => 'recent',
             'list_id' => 'proof-of-concept',
             'template' => 'sb-posts.inc',
