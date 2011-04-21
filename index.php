@@ -205,6 +205,11 @@ if( AdminUtilities::check_clearance(1) )
             src="/assets/js/jquery.loadflickr.js"></script>
     <script type="text/javascript"
             src="/assets/js/jquery.cookie.js"></script>
+			
+	<!--[if IE]>
+    <script type="text/javascript"
+           src="/assets/js/selectivizr.js"></script>
+	<![endif]-->
 
 <?php
     // If the user is logged in, load JavaScript for the admin controls
